@@ -12,23 +12,21 @@
                   <th>Usuário</th>
                   <th>Senha</th>
                   <th>Ativo</th>
+                  <th>Ações</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>2</td>
-                  <td>3</td>
-                  <td>4</td>
-                  <td>5</td>
+                <tr *ngFor="let usuario of getUsuarios">
+                  <td>{{usuario.id}}</td>
+                  <td>{{usuario.nome}}</td>
+                  <td>{{usuario.usuario}}</td>
+                  <td>{{usuario.senha}}</td>
+                  <td>{{usuario.ativo}}</td>
+                  <td>
+                    <button (click)="excluiUsuario(usuario.id)" class="btn btn-danger">Exclui</button>
+                    <button (click)="detalhaUsuario(usuario.id)" class="btn btn-info" style="margin-left: 10px">Detalha</button>
+                  </td>
                 </tr>
-                <tr>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td>4</td>
-                    <td>5</td>
-                  </tr>
               </tbody>
         </table>
     </div>
