@@ -1,22 +1,43 @@
 export class Usuario{
     
-    private id:number;
-    private nome:String;
-    private usuario:String;
-    private senha:String;
-    private ativo:Boolean;
-
-    constructor(id:number, nome:String, usuario:String, senha:String, ativo:Boolean){
-        this.id=id;
-        this.nome=nome;
-        this.usuario=usuario;
-        this.senha=senha;
-        this.ativo=ativo; 
+    private _id: number;
+    private _nome: String;
+    private _usuario: String;
+    private _senha: String;
+    private _ativo: Boolean = true;
+    
+    constructor(){ }
+    
+    public get id(): number {
+        return this._id;
+    }
+    public set id(value: number) {
+        this._id = value;
     }
 
-    get getId(){
-        return this.id;
+    public get nome(): String {
+        return this._nome;
+    }
+    public set nome(value: String) {
+        this._nome = value;
+    }
+    public get usuario(): String {
+        return this._usuario;
+    }
+    public set usuario(value: String) {
+        this._usuario = value;
+    }
+    public get senha(): String {
+        return this._senha;
+    }
+    public set senha(value: String) {
+        this._senha = value;
     }
 
-
+    public get ativo(): Boolean {
+        return this._ativo;
+    }
+    public set ativo(value: Boolean) {
+        this._ativo = value;
+    }
 }
