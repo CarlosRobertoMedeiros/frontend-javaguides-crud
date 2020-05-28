@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../usuario';
 import { UsuarioService } from '../usuario.service';
 import {Router} from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-cria-usuario',
@@ -38,5 +39,9 @@ export class CriaUsuarioComponent implements OnInit {
   navegarParaListagem(){
     //this.router.navigate(['/usuarios']);
   }
+
+  // salvar(form:NgForm){
+  //   console.log(form);
+  // }
 
 }

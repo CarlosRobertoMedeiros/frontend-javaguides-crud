@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { CriaUsuarioComponent } from './cria-usuario/cria-usuario.component';
@@ -14,7 +15,8 @@ import { DetalheUsuarioComponent } from './detalhe-usuario/detalhe-usuario.compo
     DetalheUsuarioComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

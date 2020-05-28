@@ -1,22 +1,53 @@
-<h3>Criação de Usuario</h3>
-
-<form>
-
-    <!--
-    private _id: number;
-    private _nome: String;
-    private _usuario: String;
-    private _senha: String;
-    private _ativo: Boolean = true;
-
+<div class="container">
     
-    {{_usuario | json}}
-
-    <div class="form-group">
-        <label for="id">Id</label>
-        <input type="text" class="form-control" id="id" required [(ngModel)]="_usuario.id" name="id">
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h3 class="text-center">Criação de Usuário</h3>
+        </div>
     </div>
-    -->
 
+    <form #usuarioForm="ngForm" (ngSubmit)="salvar(usuarioForm)">
 
-</form>
+            {{_usuario | json}}
+
+            <fieldset disabled>
+                <div class="form-row">
+                    <div class="form-group col-2">
+                        <label class="form-control-label" for="id">Id</label>
+                        <input type="text" class="form-control" name="id" [(ngModel)]="_usuario.id">
+                    </div>
+                </div>
+            </fieldset>
+
+            <div class="form-row">
+                <div class="form-group col-12">
+                    <label class="form-control-label" for="nome">Nome</label>
+                    <input type="text" class="form-control" name="nome" required [(ngModel)]="_usuario.nome">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-4">
+                        <label class="form-control-label" for="usuario">Usuario</label>
+                        <input type="text" class="form-control" name="usuario" required [(ngModel)]="_usuario.usuario">
+                </div>
+                <div class="form-group col-4">
+                        <label class="form-control-label" for="senha">Senha</label>
+                        <input type="password" class="form-control" name="senha" required [(ngModel)]="_usuario.senha">   
+                </div>
+                <div class="form-group col-4">
+                    <label class="form-control-label" for="situacao">Situação</label>
+                    <select class="custom-select" name="situacao" required [(ngModel)]="_usuario.ativo">
+                        <option value="">Selecione</option>
+                        <option value="1">Ativo</option>
+                        <option value="2">Inativo</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="text-right">
+                <button type="submit" class="btn btn-primary">Salvar</button>
+            </div>
+    </form>
+
+</div>
