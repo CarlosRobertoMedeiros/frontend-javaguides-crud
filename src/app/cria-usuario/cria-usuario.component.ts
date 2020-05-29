@@ -31,7 +31,7 @@ export class CriaUsuarioComponent implements OnInit {
     this.navegarParaListagem();
   }
 
-  onSubmit() {
+  onSubmit(usuarioForm:NgForm) {
     this._submetido = true;
     this.salvarUsuario();    
   }

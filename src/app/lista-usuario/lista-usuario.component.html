@@ -1,4 +1,4 @@
-<div class="panel panel-primary">
+<div class="container">
     <div class="panel-heading">
       <h2>Lista de Usuários</h2>
     </div>
@@ -23,8 +23,9 @@
                   <td>{{usuario.senha}}</td>
                   <td>{{usuario.ativo}}</td>
                   <td>
-                    <button (click)="excluiUsuario(usuario.id)" class="btn btn-danger">Exclui</button>
-                    <button (click)="detalhaUsuario(usuario.id)" class="btn btn-info" style="margin-left: 10px">Detalha</button>
+                    <button (click)="excluiUsuario(usuario.id)"   class="btn btn-danger">Exclui</button>
+                    <button (click)="atualizaUsuario(usuario)" class="btn btn-info" style="margin-left: 10px">Atualiza</button>
+                    <button (click)="detalhaUsuario(usuario.id)"  class="btn btn-info" style="margin-left: 10px">Detalha</button>
                   </td>
                 </tr>
               </tbody>

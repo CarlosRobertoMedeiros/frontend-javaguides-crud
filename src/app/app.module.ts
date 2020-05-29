@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { CriaUsuarioComponent } from './cria-usuario/cria-usuario.component';
 import { ListaUsuarioComponent } from './lista-usuario/lista-usuario.component';
 import { DetalheUsuarioComponent } from './detalhe-usuario/detalhe-usuario.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { DetalheUsuarioComponent } from './detalhe-usuario/detalhe-usuario.compo
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

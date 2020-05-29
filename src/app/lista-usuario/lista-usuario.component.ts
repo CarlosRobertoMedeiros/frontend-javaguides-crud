@@ -36,6 +36,10 @@ export class ListaUsuarioComponent implements OnInit {
     return this.usuarioService.getUsuario(id);
   }
 
+  public atualizaUsuario(usuario:Usuario){
+    return this.usuarioService.atualizaUsuario(usuario);
+  }
+
 }
 //TODO: Criar uma lista de usuários no front end
 

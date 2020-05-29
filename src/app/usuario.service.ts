@@ -1,6 +1,7 @@
 import { Injectable} from '@angular/core';
 
 import { Usuario } from './usuario';
+import { stringify } from 'querystring';
 
 
 @Injectable({
@@ -12,6 +13,7 @@ export class UsuarioService {
   private _usuario2:Usuario = new Usuario();
   private _usuario3:Usuario = new Usuario();
   private _usuarios:Usuario[]= new Array;
+  private static _idInicial:Number = 4;
 
   constructor() { }
 
@@ -66,10 +68,27 @@ export class UsuarioService {
     this._usuarios.splice(index,1);
   }
 
+  
+  private criaChavePrimaria(usuario:Usuario){
+    let tamanhoArray:number = this._usuarios.length;
+    usuario.id = ++tamanhoArray;
+  }
+
+
   criaUsuario(usuario:Usuario):any{
     this.VerificaArrayDeUsuarios();
+    this.criaChavePrimaria(usuario);
     this._usuarios.push(usuario);
+  }
 
+  atualizaUsuario(usuario:Usuario){
+    let indice = this._usuarios.findIndex(u =>{
+      u.id ===usuario.id;
+    })
+    if (indice>=0){
+      this._usuarios.splice(indice,1);
+      this._usuarios.splice(indice,0,usuario);   
+    }
   }
 
   
