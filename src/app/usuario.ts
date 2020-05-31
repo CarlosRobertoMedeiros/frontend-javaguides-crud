@@ -1,13 +1,14 @@
 export class Usuario{
     
-    private _id: number;
-    private _nome: String;
-    private _usuario: String;
-    private _senha: String;
-    private _ativo: Boolean = true;
+    public id: number;
+    public nome: String;
+    public usuario: String;
+    public senha: String;
+    public ativo: Boolean = true;
     
     constructor(){ }
     
+    /*
     public get id(): number {
         return this._id;
     }
@@ -40,4 +41,5 @@ export class Usuario{
     public set ativo(value: Boolean) {
         this._ativo = value;
     }
+    */
 }

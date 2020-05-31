@@ -56,7 +56,6 @@ export class UsuarioService {
     this.VerificaArrayDeUsuarios();
     let index:number = this._usuarios.findIndex(usuario => usuario.id ==id);
     if (index>=0){
-      console.log(this._usuarios.slice(index,index+1));
       return this._usuarios.slice(index,index+1);
     }
 

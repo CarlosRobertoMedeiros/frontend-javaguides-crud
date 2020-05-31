@@ -27,6 +27,7 @@ export class CriaUsuarioComponent implements OnInit {
 
   salvarUsuario(){
     this.usuarioService.criaUsuario(this._usuario);
+    console.log(JSON.stringify(this._usuario));
     this._usuario = new Usuario();
     this.navegarParaListagem();
   }

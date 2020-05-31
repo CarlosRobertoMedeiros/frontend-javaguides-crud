@@ -1,1 +1,19 @@
-<p>detalhe-usuario works!</p>
+<div class="container">
+
+    <div class="panel-heading">
+      <h2>Detalhes do Usuário</h2>
+    </div>
+
+    <div class="panel-body">
+        {{ usuario | json }}
+        <div *ngIf="usuario">
+            <div>
+                <label><b>First Name: </b></label> {{ usuario.id }}
+            </div>
+            <div>
+                <label><b>Last Name: </b></label> {{ usuario.nome }}
+            </div>
+        </div>
+    </div>
+
+</div>

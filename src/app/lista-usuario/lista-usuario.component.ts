@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 
 import { Usuario } from '../usuario';
 import { UsuarioService } from '../usuario.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-lista-usuario',
@@ -13,7 +14,8 @@ export class ListaUsuarioComponent implements OnInit {
 
   private usuarios: Usuario[];
   
-  constructor(private usuarioService:UsuarioService) { }
+  constructor(private usuarioService:UsuarioService,
+              private routes: Router) { }
 
   ngOnInit(): void {
     this.recarregarInformacoes();
@@ -33,7 +35,8 @@ export class ListaUsuarioComponent implements OnInit {
   }
 
   public detalhaUsuario(id:number){
-    return this.usuarioService.getUsuario(id);
+    let usuario:Usuario = this.usuarioService.getUsuario(id);
+    this.routes.navigate(['usuarios/detalhes', id]);
   }
 
   public atualizaUsuario(usuario:Usuario){
