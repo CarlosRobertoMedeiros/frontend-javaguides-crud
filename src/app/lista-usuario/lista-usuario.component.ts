@@ -18,11 +18,19 @@ export class ListaUsuarioComponent implements OnInit {
               private routes: Router) { }
 
   ngOnInit(): void {
-    this.recarregarInformacoes();
+    //this.recarregarInformacoes();
+    
+    this.usuarioService.getUsuarios()
+      .then(meuusuario =>{
+        console.log(meuusuario);
+      });
   }
 
+  /*
   private recarregarInformacoes() {
-    this.usuarios = this.usuarioService.getUsuarios();
+    this.usuarios = this.usuarioService.getUsuarios().then()=>{
+
+    };
   }
 
   get getUsuarios():Usuario[]{
@@ -42,6 +50,7 @@ export class ListaUsuarioComponent implements OnInit {
   public atualizaUsuario(usuario:Usuario){
     return this.usuarioService.atualizaUsuario(usuario);
   }
+  */
 
 }
 //TODO: Criar uma lista de usuários no front end

@@ -5,15 +5,20 @@
     </div>
 
     <div class="panel-body">
-        {{ usuario | json }}
-        <div *ngIf="usuario">
+        {{ usuarioInterno | json }}
+
+        {{ usuarioInterno.id }}
+
+            {{ usuarioInterno.nome }}
+        
+        <!-- <div>
             <div>
-                <label><b>First Name: </b></label> {{ usuario.id }}
+                <label><b>First Name: </b></label><span>{{ usuarioInterno.id }}</span>
             </div>
             <div>
-                <label><b>Last Name: </b></label> {{ usuario.nome }}
+                <label><b>Last Name: </b></label> {{ usuarioInterno.nome }}
             </div>
-        </div>
+        </div> -->
     </div>
 
 </div>

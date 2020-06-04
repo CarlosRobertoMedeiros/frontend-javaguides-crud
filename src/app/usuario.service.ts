@@ -2,6 +2,7 @@ import { Injectable} from '@angular/core';
 
 import { Usuario } from './usuario';
 import { stringify } from 'querystring';
+import { HttpClient } from '@angular/common/http';
 
 
 @Injectable({
@@ -15,7 +16,7 @@ export class UsuarioService {
   private _usuarios:Usuario[]= new Array;
   private static _idInicial:Number = 4;
 
-  constructor() { }
+  constructor(private http:HttpClient) { }
 
   private carregaValoresPadrao(): void {
     this._usuario1.id=1;
@@ -47,9 +48,13 @@ export class UsuarioService {
    }
   }
   
-  getUsuarios(){
-   this.VerificaArrayDeUsuarios();
-   return this._usuarios;
+  getUsuarios():Promise<any>{
+   return this.http.get('http://localhost:3000/usuarios')
+          .toPromise()
+          .then(resp =>{
+            const usuario = resp;
+            console.log(usuario);
+          });
   }
 
   getUsuario(id:Number):any{
