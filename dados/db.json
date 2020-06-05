@@ -5,21 +5,28 @@
       "nome": "Carlos Roberto",
       "usuario": "carlos.lima",
       "senha": "123456",
-      "ativo":true
+      "ativo": true
     },
     {
       "id": 2,
       "nome": "Luciene Medeiros",
       "usuario": "luciene.medeiros",
       "senha": "654321",
-      "ativo":true
+      "ativo": true
     },
     {
       "id": 3,
       "nome": "Ezequias Alves",
       "usuario": "eze.alves",
       "senha": "456123",
-      "ativo":true
+      "ativo": true
+    },
+    {
+      "ativo": "false",
+      "nome": "Alex Martins de Moraes",
+      "usuario": "alex.moraes",
+      "senha": "123456",
+      "id": 4
     }
   ]
 }

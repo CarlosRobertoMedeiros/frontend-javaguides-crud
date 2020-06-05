@@ -3,6 +3,7 @@ import { Injectable} from '@angular/core';
 import { Usuario } from './usuario';
 import { stringify } from 'querystring';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -10,91 +11,30 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UsuarioService {
 
-  private _usuario1:Usuario = new Usuario();
-  private _usuario2:Usuario = new Usuario();
-  private _usuario3:Usuario = new Usuario();
-  private _usuarios:Usuario[]= new Array;
-  private static _idInicial:Number = 4;
-
+  private readonly USUARIO_SERVICE_API="http://localhost:3000/usuarios";
+  
   constructor(private http:HttpClient) { }
 
-  private carregaValoresPadrao(): void {
-    this._usuario1.id=1;
-    this._usuario1.nome="Carlos Roberto";
-    this._usuario1.usuario="carlos.lima";
-    this._usuario1.senha="123456";
-    this._usuario1.ativo=true;
-
-    this._usuario2.id=2;
-    this._usuario2.nome="Luciene Medeiros";
-    this._usuario2.usuario="luciene.medeiros";
-    this._usuario2.senha="654321";
-    this._usuario2.ativo=true;
-
-    this._usuario3.id=3;
-    this._usuario3.nome="Ezequias Alves";
-    this._usuario3.usuario="ezequias.alves";
-    this._usuario3.senha="654123";
-    this._usuario3.ativo=true;
-
-    this._usuarios.push(this._usuario1);
-    this._usuarios.push(this._usuario2);
-    this._usuarios.push(this._usuario3);
+  getUsuarios():Observable<any>{
+   return this.http.get(this.USUARIO_SERVICE_API);
   }
 
-  private VerificaArrayDeUsuarios(){
-    if (this._usuarios.length==0){
-      this.carregaValoresPadrao();
-   }
+  getUsuario(id:number):Observable<any>{
+    return this.http.get(`${this.USUARIO_SERVICE_API}/${id}`);
+  }
+
+  criaUsuario(usuario:Object):Observable<any>{
+    return this.http.post(`${this.USUARIO_SERVICE_API}`,usuario);
+  }
+
+  atualizaUsuario(id: number, usuario: any):Observable<any>{
+    return this.http.put(`${this.USUARIO_SERVICE_API}/${id}`,usuario);
+  }
+
+  excluiPorId(id: number):Observable<any> {
+    return this.http.delete(`${this.USUARIO_SERVICE_API}/${id}`, {responseType:'text'});
   }
   
-  getUsuarios():Promise<any>{
-   return this.http.get('http://localhost:3000/usuarios')
-          .toPromise()
-          .then(resp =>{
-            const usuario = resp;
-            console.log(usuario);
-          });
-  }
-
-  getUsuario(id:Number):any{
-    this.VerificaArrayDeUsuarios();
-    let index:number = this._usuarios.findIndex(usuario => usuario.id ==id);
-    if (index>=0){
-      return this._usuarios.slice(index,index+1);
-    }
-
-  }
-
-  deletaUsuario(id: number): any {
-    this.VerificaArrayDeUsuarios();
-    let index = this._usuarios.findIndex(usuario => usuario.id ==id);
-    this._usuarios.splice(index,1);
-  }
-
-  
-  private criaChavePrimaria(usuario:Usuario){
-    let tamanhoArray:number = this._usuarios.length;
-    usuario.id = ++tamanhoArray;
-  }
-
-
-  criaUsuario(usuario:Usuario):any{
-    this.VerificaArrayDeUsuarios();
-    this.criaChavePrimaria(usuario);
-    this._usuarios.push(usuario);
-  }
-
-  atualizaUsuario(usuario:Usuario){
-    let indice = this._usuarios.findIndex(u =>{
-      u.id ===usuario.id;
-    })
-    if (indice>=0){
-      this._usuarios.splice(indice,1);
-      this._usuarios.splice(indice,0,usuario);   
-    }
-  }
-
   
 }
 

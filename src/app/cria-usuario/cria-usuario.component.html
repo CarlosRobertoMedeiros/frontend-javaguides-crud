@@ -7,12 +7,12 @@
     
     <div class="panel-body">
     <form #usuarioForm="ngForm" (ngSubmit)="onSubmit(usuarioForm)">
-
+            {{ usuario | json }}
             <fieldset disabled>
                 <div class="form-row">
                     <div class="form-group col-2">
                         <label class="form-control-label" for="id">Id</label>
-                        <input type="text" class="form-control" name="id" [(ngModel)]="_usuario.id">
+                        <input type="text" class="form-control" name="id" [(ngModel)]="usuario.id">
                     </div>
                 </div>
             </fieldset>
@@ -20,22 +20,22 @@
             <div class="form-row">
                 <div class="form-group col-12">
                     <label class="form-control-label" for="nome">Nome</label>
-                    <input type="text" class="form-control" name="nome" required [(ngModel)]="_usuario.nome">
+                    <input type="text" class="form-control" name="nome" required [(ngModel)]="usuario.nome">
                 </div>
             </div>
 
             <div class="form-row">
                 <div class="form-group col-4">
                         <label class="form-control-label" for="usuario">Usuario</label>
-                        <input type="text" class="form-control" name="usuario" required [(ngModel)]="_usuario.usuario">
+                        <input type="text" class="form-control" name="usuario" required [(ngModel)]="usuario.usuario">
                 </div>
                 <div class="form-group col-4">
                         <label class="form-control-label" for="senha">Senha</label>
-                        <input type="password" class="form-control" name="senha" required [(ngModel)]="_usuario.senha">   
+                        <input type="password" class="form-control" name="senha" required [(ngModel)]="usuario.senha">   
                 </div>
                 <div class="form-group col-4">
                     <label class="form-control-label" for="situacao">Situação</label>
-                    <select class="custom-select" name="situacao" required [(ngModel)]="_usuario.ativo">
+                    <select class="custom-select" name="situacao" required [(ngModel)]="usuario.ativo">
                         <option value="">Selecione</option>
                         <option value=true>Ativo</option>
                         <option value=false>Inativo</option>

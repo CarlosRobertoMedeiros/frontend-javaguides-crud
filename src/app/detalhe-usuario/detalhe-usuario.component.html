@@ -5,20 +5,25 @@
     </div>
 
     <div class="panel-body">
-        {{ usuarioInterno | json }}
-
-        {{ usuarioInterno.id }}
-
-            {{ usuarioInterno.nome }}
-        
-        <!-- <div>
+        <div>
             <div>
-                <label><b>First Name: </b></label><span>{{ usuarioInterno.id }}</span>
+                <label><b>Id:</b></label><span>{{ usuario.id }}</span>
             </div>
             <div>
-                <label><b>Last Name: </b></label> {{ usuarioInterno.nome }}
+                <label><b>Nome: </b></label> {{ usuario.nome }}
             </div>
-        </div> -->
+            <div>
+                <label><b>Usuário: </b></label> {{ usuario.usuario }}
+            </div>
+            <div>
+                <label><b>Senha: </b></label> {{ usuario.senha }}
+            </div>
+            <div>
+                <label><b>Ativo: </b></label> {{ usuario.ativo }}
+            </div>
+        </div>
     </div>
-
+    <br>
+    <br>
+    <button (click)="retornaAListagem()" class="btn btn-primary">retornar</button>
 </div>

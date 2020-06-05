@@ -11,38 +11,36 @@ import { NgForm } from '@angular/forms';
 })
 export class CriaUsuarioComponent implements OnInit {
 
-  _usuario:Usuario = new Usuario();
-  _submetido:boolean = false;
+  usuario:Usuario = new Usuario();
+  submetido:boolean = false;
 
-  constructor(private usuarioService:UsuarioService/*
-              private router:Router*/) { }
+  constructor(private usuarioService:UsuarioService,
+              private router:Router) { }
 
   ngOnInit(): void {
+  
   }
 
-  novoUsuario():void{
-    this._submetido = false;
-    this._usuario = new Usuario();
+  novo():void{
+    this.submetido = false;
+    this.usuario = new Usuario();
   }
 
-  salvarUsuario(){
-    this.usuarioService.criaUsuario(this._usuario);
-    console.log(JSON.stringify(this._usuario));
-    this._usuario = new Usuario();
+  salva(){
+    this.usuarioService.criaUsuario(this.usuario)
+      .subscribe(dados => console.log(dados), erro => console.log(erro));
+
+    this.usuario = new Usuario();
+
     this.navegarParaListagem();
   }
 
   onSubmit(usuarioForm:NgForm) {
-    this._submetido = true;
-    this.salvarUsuario();    
+    this.submetido = true;
+    this.salva();    
   }
 
   navegarParaListagem(){
-    //this.router.navigate(['/usuarios']);
+    this.router.navigate(['/usuarios']);
   }
-
-  // salvar(form:NgForm){
-  //   console.log(form);
-  // }
-
 }

@@ -12,25 +12,22 @@ export class DetalheUsuarioComponent implements OnInit {
 
   id: number;
   usuario: Usuario;
-  usuarioInterno:Usuario= new Usuario;
-  
 
   constructor(private route: ActivatedRoute,
+              private router: Router,
               private usuarioService: UsuarioService) { }
 
   ngOnInit(): void {
-    //TODO: Ajustar Esse Código Amanhã
     this.usuario = new Usuario();
     this.id = this.route.snapshot.params['id'];
-    this.usuarioInterno = this.usuarioService.getUsuario(this.id);
-    console.log("Peguei Aqui"+JSON.stringify(this.usuarioInterno));
-    // this.usuario.id = usuarioInterno.id;
-    // console.log("id"+this.usuario.id); 
-    // this.usuario.nome = usuarioInterno.nome;
-    // this.usuario.usuario = usuarioInterno.usuario;
-    // this.usuario.senha = usuarioInterno.senha;
-    // this.usuario.ativo = usuarioInterno.ativo;
-    // console.log("Peguei Aqui Não"+JSON.stringify(this.usuario));
+
+    this.usuarioService.getUsuario(this.id)
+      .subscribe(usuario=>this.usuario = usuario),
+      erro =>console.log(erro);
+  }
+
+  retornaAListagem(){
+    this.router.navigate(['usuarios']);
   }
 
 }

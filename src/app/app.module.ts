@@ -8,13 +8,15 @@ import { CriaUsuarioComponent } from './cria-usuario/cria-usuario.component';
 import { ListaUsuarioComponent } from './lista-usuario/lista-usuario.component';
 import { DetalheUsuarioComponent } from './detalhe-usuario/detalhe-usuario.component';
 import { AppRoutingModule } from './app-routing.module';
+import { AtualizaUsuarioComponent } from './atualiza-usuario/atualiza-usuario.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CriaUsuarioComponent,
     ListaUsuarioComponent,
-    DetalheUsuarioComponent
+    DetalheUsuarioComponent,
+    AtualizaUsuarioComponent
   ],
   imports: [
     BrowserModule,

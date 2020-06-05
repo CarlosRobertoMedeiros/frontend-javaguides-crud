@@ -12,45 +12,37 @@ import { Router } from '@angular/router';
 })
 export class ListaUsuarioComponent implements OnInit {
 
-  private usuarios: Usuario[];
-  
+  usuarios: Observable<Usuario[]>;
+   
   constructor(private usuarioService:UsuarioService,
               private routes: Router) { }
 
   ngOnInit(): void {
-    //this.recarregarInformacoes();
-    
-    this.usuarioService.getUsuarios()
-      .then(meuusuario =>{
-        console.log(meuusuario);
-      });
+    this.listaTodos();
   }
 
-  /*
-  private recarregarInformacoes() {
-    this.usuarios = this.usuarioService.getUsuarios().then()=>{
-
-    };
+  listaTodos(){
+    this.usuarios = this.usuarioService.getUsuarios();
   }
 
-  get getUsuarios():Usuario[]{
-    return this.usuarios;
+  detalhaPorId(id:number){
+    this.routes.navigate(['usuarios', id]);
   }
 
-
-  public excluiUsuario(id:number){
-    return this.usuarioService.deletaUsuario(id);
+  excluiPorId(id:number){
+     return this.usuarioService.excluiPorId(id)
+        .subscribe(
+          dados =>{
+            console.log(dados);
+            this.listaTodos();
+          },
+          erro => console.log(erro));
   }
 
-  public detalhaUsuario(id:number){
-    let usuario:Usuario = this.usuarioService.getUsuario(id);
-    this.routes.navigate(['usuarios/detalhes', id]);
+  //TODO: Fazer no Momento Oportuno
+  atualizaPorId(id:number){
+    this.routes.navigate(['usuarios/atualiza/',id]);
   }
-
-  public atualizaUsuario(usuario:Usuario){
-    return this.usuarioService.atualizaUsuario(usuario);
-  }
-  */
 
 }
 //TODO: Criar uma lista de usuários no front end

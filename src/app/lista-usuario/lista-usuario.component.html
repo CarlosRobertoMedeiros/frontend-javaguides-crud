@@ -1,6 +1,7 @@
 <div class="container">
     <div class="panel-heading">
       <h2>Lista de Usuários</h2>
+     
     </div>
 
     <div class="panel-body">
@@ -16,25 +17,17 @@
                 </tr>
               </thead>
               <tbody>
-                <!--
-                <tr *ngFor="let usuario of getUsuarios">
-                 -->
-                <tr>
-                  <!--
+                <tr *ngFor="let usuario of usuarios | async">
                   <td>{{usuario.id}}</td>
                   <td>{{usuario.nome}}</td>
                   <td>{{usuario.usuario}}</td>
                   <td>{{usuario.senha}}</td>
                   <td>{{usuario.ativo}}</td>
                   <td>
-                    -->
-                    <!--
-                    <button (click)="excluiUsuario(usuario.id)"   class="btn btn-danger">Exclui</button>
-                    <button (click)="atualizaUsuario(usuario)" class="btn btn-info" style="margin-left: 10px">Atualiza</button>
-                    <button (click)="detalhaUsuario(usuario.id)"  class="btn btn-info" style="margin-left: 10px">Detalha</button>
-                   
+                    <button (click)="excluiPorId(usuario.id)"   class="btn btn-danger">Exclui</button>
+                    <button (click)="detalhaPorId(usuario.id)"  class="btn btn-info" style="margin-left: 10px">Detalha</button>
+                    <button (click)="atualizaPorId(usuario.id)" class="btn btn-info" style="margin-left: 10px">Atualiza</button>
                   </td>
-                -->
                 </tr>
               </tbody>
         </table>
