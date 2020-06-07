@@ -24,19 +24,16 @@ export class AtualizaUsuarioComponent implements OnInit {
     this.id = this.route.snapshot.params['id'];
 
     this.usuarioService.getUsuario(this.id)
-      .subscribe(data => console.log(data), error => console.log(error));
-    
-    this.usuario = new Usuario();
-    console.log("sadfadsfas");
-    //this.navegarParaListagem();
+      .subscribe(data => this.usuario=data, error => console.log(error));
+            
+   
   }
 
   atualizaUsuario() {
     this.usuarioService.atualizaUsuario(this.id, this.usuario)
       .subscribe(data => console.log(data), error => console.log(error));
-    
-    this.usuario = new Usuario();
-    this.navegarParaListagem;
+
+    this.navegarParaListagem();
   }
 
   onSubmit(usuarioForm:NgForm) {
