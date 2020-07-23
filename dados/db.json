@@ -1,15 +1,8 @@
 {
   "usuarios": [
     {
-      "id": 1,
-      "nome": "Carlos Roberto",
-      "usuario": "carlos.lima",
-      "senha": "123456",
-      "ativo": true
-    },
-    {
       "id": 2,
-      "nome": "Luciene Medeiros",
+      "nome": "Luciene Medeiros 22222",
       "usuario": "luciene.medeiros",
       "senha": "654321",
       "ativo": true
@@ -34,6 +27,13 @@
       "usuario": "antonia.lima",
       "senha": "321654",
       "id": 5
+    },
+    {
+      "ativo": "false",
+      "nome": "Alex Martins de Moraes",
+      "usuario": "moraissan",
+      "senha": "1321123",
+      "id": 6
     }
   ]
 }
